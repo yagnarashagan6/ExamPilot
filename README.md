@@ -100,28 +100,47 @@ A comprehensive exam scheduling and management web application built with Spring
 
 ## 🔧 Environment Variables
 
+The application now uses secure environment variable configuration. See [ENVIRONMENT_VARIABLES.md](ENVIRONMENT_VARIABLES.md) for detailed setup instructions.
+
+### Quick Setup
+
+1. **Copy the example environment file**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Update the .env file with your actual credentials**
+
 ### Frontend (.env)
 
 ```env
 VITE_API_BASE_URL=http://localhost:8084
 ```
 
-### Backend (application.properties)
+### Backend Environment Variables
 
-```properties
-# MongoDB Configuration
-spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/database
+The backend now uses environment variables for secure configuration:
 
-# Server Configuration
-server.port=8084
+```bash
+# MongoDB Configuration (Required)
+MONGODB_USERNAME=your_mongodb_username
+MONGODB_PASSWORD=your_mongodb_password
+MONGODB_CLUSTER=your_cluster.mongodb.net
 
-# CORS Configuration
-cors.allowed.origins=http://localhost:3000,http://localhost:5173
+# Admin Configuration (Recommended to change)
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=your_secure_password
 
-# Admin Configuration
-app.admin.username=admin
-app.admin.password=admin123
+# JWT Configuration (Required for production)
+JWT_SECRET=your_jwt_secret_key
+
+# Security Configuration
+SECURITY_USERNAME=admin
+SECURITY_PASSWORD=your_secure_password
 ```
+
+**Important**: The application will fall back to default values for development, but you should set proper environment variables for production deployment.
 
 ## 💻 Usage
 

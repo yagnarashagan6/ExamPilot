@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  exampilot-backend:
+    build:
+      context: ./ExamPilot
+      dockerfile: Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      # MongoDB Configuration - Set your actual values here
+      - MONGODB_USERNAME=${MONGODB_USERNAME:-yagnarashagan}
+      - MONGODB_PASSWORD=${MONGODB_PASSWORD:-rashagan63}
+      - MONGODB_CLUSTER=${MONGODB_CLUSTER:-registration.ly1lbic.mongodb.net}
+      - MONGODB_DATABASE=${MONGODB_DATABASE:-}
+
+      # Admin Configuration - Change these for production
+      - ADMIN_USERNAME=${ADMIN_USERNAME:-admin}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin123}
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-admin@examscheduler.com}
+
+      # JWT Configuration - Use a strong secret in production
+      - JWT_SECRET=${JWT_SECRET:-mySecretKey}
+      - JWT_EXPIRATION=${JWT_EXPIRATION:-86400}
+
+      # Security Configuration
+      - SECURITY_USERNAME=${SECURITY_USERNAME:-admin}
+      - SECURITY_PASSWORD=${SECURITY_PASSWORD:-admin123}
+      - SECURITY_ROLES=${SECURITY_ROLES:-ADMIN}
+
+      # CORS Configuration
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:3001,http://localhost:5173,https://*.netlify.app}
+
+      # Application Configuration
+      - SPRING_PROFILES_ACTIVE=prod
+      - PORT=8084
+    volumes:
+      - ./ExamPilot/logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8084/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Optional: Add frontend service if needed for full-stack development
+  # exampilot-frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - exampilot-backend
+  #   environment:
+  #     - REACT_APP_API_URL=http://localhost:8084

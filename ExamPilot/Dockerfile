@@ -26,5 +26,28 @@ EXPOSE 8084
 ENV SPRING_PROFILES_ACTIVE=prod
 ENV PORT=8084
 
+# MongoDB environment variables (set these when running the container)
+ENV MONGODB_USERNAME=""
+ENV MONGODB_PASSWORD=""
+ENV MONGODB_CLUSTER=""
+ENV MONGODB_DATABASE=""
+
+# Admin configuration environment variables
+ENV ADMIN_USERNAME=""
+ENV ADMIN_PASSWORD=""
+ENV ADMIN_EMAIL=""
+
+# JWT configuration environment variables
+ENV JWT_SECRET=""
+ENV JWT_EXPIRATION=""
+
+# Security configuration environment variables
+ENV SECURITY_USERNAME=""
+ENV SECURITY_PASSWORD=""
+ENV SECURITY_ROLES=""
+
+# CORS configuration environment variables
+ENV CORS_ALLOWED_ORIGINS=""
+
 # Run the jar file
 CMD ["java", "-jar", "target/ExamPilot-0.0.1-SNAPSHOT.jar"]
