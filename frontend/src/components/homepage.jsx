@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useReducer } from "react";
 import "./homepage.css";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+import { API_BASE_URL } from "../config/api.js";
 
 const initialState = {
   isLoggedIn: false,
@@ -110,7 +111,7 @@ const Homepage = () => {
       if (auth) {
         try {
           const response = await fetch(
-            `http://localhost:8084/api/exam-folders/user/${appState.currentUserId}`,
+            `${API_BASE_URL}/api/exam-folders/user/${appState.currentUserId}`,
             {
               headers: {
                 Authorization: `Basic ${auth}`,
@@ -174,7 +175,7 @@ const Homepage = () => {
     if (auth) {
       try {
         const response = await fetch(
-          `http://localhost:8084/api/exam-folders/user/${appState.currentUserId}`,
+          `${API_BASE_URL}/api/exam-folders/user/${appState.currentUserId}`,
           {
             headers: {
               Authorization: `Basic ${auth}`,
@@ -221,7 +222,7 @@ const Homepage = () => {
       try {
         // Use the new endpoint that creates a folder for each timetable
         const response = await fetch(
-          `http://localhost:8084/api/exam-folders/create-with-timetable?userId=${appState.currentUserId}`,
+          `${API_BASE_URL}/api/exam-folders/create-with-timetable?userId=${appState.currentUserId}`,
           {
             method: "POST",
             headers: {
@@ -325,7 +326,7 @@ const Homepage = () => {
     if (auth && folder && updatedTimetableData.id) {
       try {
         const response = await fetch(
-          `http://localhost:8084/api/exam-folders/${folder.id}/timetables/${updatedTimetableData.id}`,
+          `${API_BASE_URL}/api/exam-folders/${folder.id}/timetables/${updatedTimetableData.id}`,
           {
             method: "PUT",
             headers: {
@@ -427,7 +428,7 @@ const Homepage = () => {
       if (auth) {
         try {
           const response = await fetch(
-            `http://localhost:8084/api/exam-folders/${folder.id}/timetables/${timetableId}`,
+            `${API_BASE_URL}/api/exam-folders/${folder.id}/timetables/${timetableId}`,
             {
               method: "DELETE",
               headers: {
@@ -441,15 +442,12 @@ const Homepage = () => {
 
             // If folder has no more timetables, delete the folder
             if (updatedFolder.timetables.length === 0) {
-              await fetch(
-                `http://localhost:8084/api/exam-folders/${folder.id}`,
-                {
-                  method: "DELETE",
-                  headers: {
-                    Authorization: `Basic ${auth}`,
-                  },
-                }
-              );
+              await fetch(`${API_BASE_URL}/api/exam-folders/${folder.id}`, {
+                method: "DELETE",
+                headers: {
+                  Authorization: `Basic ${auth}`,
+                },
+              });
               dispatch({ type: "DELETE_EXAM_FOLDER", payload: folder.id });
             } else {
               dispatch({ type: "UPDATE_EXAM_FOLDER", payload: updatedFolder });
