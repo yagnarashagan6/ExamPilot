@@ -4,7 +4,7 @@ A comprehensive exam scheduling and management web application built with Spring
 
 ## 🌟 Live Demo
 
-- **Frontend**: [https://your-app.netlify.app](https://exam-pilot-zeta.netlify.app/)
+- **Frontend**: [https://exam-pilot-zeta.netlify.app](https://exam-pilot-zeta.netlify.app/)
 
 ## 📋 Table of Contents
 
