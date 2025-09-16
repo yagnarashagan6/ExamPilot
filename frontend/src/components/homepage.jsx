@@ -554,7 +554,7 @@ const Homepage = () => {
 
 const LoginScreen = ({ onLogin }) => {
   const [username, setUsername] = useState("admin"); // Pre-filled for testing
-  const [password, setPassword] = useState("password123"); // Pre-filled for testing
+  const [password, setPassword] = useState("admin123"); // Pre-filled for testing
 
   const handleSubmit = async (e) => {
     e.preventDefault();
