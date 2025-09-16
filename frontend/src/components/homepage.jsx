@@ -618,7 +618,7 @@ const LoginScreen = ({ onLogin }) => {
               fontSize: "0.8rem",
             }}
           >
-            <strong>Password:</strong> password123
+            <strong>Password:</strong> admin123
           </p>
         </div>
 

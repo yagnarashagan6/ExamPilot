@@ -1,0 +1,38 @@
+# Ignore target directory (build output)
+target/
+
+# Ignore IDE files
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore backup files
+*.bak
+*.swp
+*.swo
+
+# Ignore Git directory
+.git/
+.gitignore
+
+# Ignore Maven wrapper jar (we'll use the script)
+.mvn/wrapper/maven-wrapper.jar
+
+# Ignore test results
+TEST-*.xml
+
+# Ignore application-local.properties if exists
+application-local.properties
