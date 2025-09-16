@@ -4,7 +4,7 @@ A comprehensive exam scheduling and management web application built with Spring
 
 ## 🌟 Live Demo
 
-- **Frontend**: [https://your-app.netlify.app](https://your-app.netlify.app) *(Replace with your actual Netlify URL)*
+- **Frontend**: [https://your-app.netlify.app](https://your-app.netlify.app) _(Replace with your actual Netlify URL)_
 - **Backend API**: [https://exampilot-70o5.onrender.com](https://exampilot-70o5.onrender.com)
 
 ## 📋 Table of Contents
@@ -35,6 +35,7 @@ A comprehensive exam scheduling and management web application built with Spring
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **Framework**: React 19.1.1
 - **Build Tool**: Vite
 - **Styling**: CSS3 with custom styles
@@ -42,6 +43,7 @@ A comprehensive exam scheduling and management web application built with Spring
 - **HTTP Client**: Fetch API
 
 ### Backend
+
 - **Framework**: Spring Boot 3.5.5
 - **Language**: Java 21
 - **Build Tool**: Maven
@@ -50,6 +52,7 @@ A comprehensive exam scheduling and management web application built with Spring
 - **CORS**: Configured for cross-origin requests
 
 ### Deployment
+
 - **Frontend**: Netlify
 - **Backend**: Render (Docker)
 - **Database**: MongoDB Atlas (Cloud)
@@ -77,12 +80,14 @@ A comprehensive exam scheduling and management web application built with Spring
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yagnarashagan6/ExamPilot.git
    cd ExamPilot
    ```
 
 2. **Backend Setup**
+
    ```bash
    cd ExamPilot
    ./mvnw clean install
@@ -97,11 +102,13 @@ A comprehensive exam scheduling and management web application built with Spring
 ## 🔧 Environment Variables
 
 ### Frontend (.env)
+
 ```env
 VITE_API_BASE_URL=http://localhost:8084
 ```
 
 ### Backend (application.properties)
+
 ```properties
 # MongoDB Configuration
 spring.data.mongodb.uri=mongodb+srv://username:password@cluster.mongodb.net/database
@@ -122,12 +129,14 @@ app.admin.password=admin123
 ### Running Locally
 
 1. **Start the Backend**
+
    ```bash
    cd ExamPilot
    ./mvnw spring-boot:run
    ```
 
 2. **Start the Frontend**
+
    ```bash
    cd frontend
    npm run dev
@@ -138,15 +147,18 @@ app.admin.password=admin123
    - Backend API: http://localhost:8084
 
 ### Default Credentials
+
 - **Username**: admin
 - **Password**: admin123
 
 ## 📡 API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/login` - User login
 
 ### Exam Folders
+
 - `GET /api/exam-folders/user/{userId}` - Get user's exam folders
 - `POST /api/exam-folders/create-with-timetable` - Create new exam folder with timetable
 - `PUT /api/exam-folders/{folderId}/timetables/{timetableId}` - Update timetable
@@ -158,6 +170,7 @@ app.admin.password=admin123
 ### Frontend (Netlify)
 
 1. **Build Configuration**
+
    ```toml
    [build]
      base = "frontend"
@@ -171,6 +184,7 @@ app.admin.password=admin123
 ### Backend (Render)
 
 1. **Docker Configuration**
+
    - Uses the included `Dockerfile`
    - Root directory: `ExamPilot`
 
@@ -225,6 +239,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 Author
 
 **Yagna Rashagan**
+
 - GitHub: [@yagnarashagan6](https://github.com/yagnarashagan6)
 
 ## 🙏 Acknowledgments
