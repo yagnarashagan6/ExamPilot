@@ -30,24 +30,24 @@ ENV PORT=8084
 ENV MONGODB_USERNAME=""
 ENV MONGODB_PASSWORD=""
 ENV MONGODB_CLUSTER=""
-ENV MONGODB_DATABASE=""
+ENV MONGODB_DATABASE="exam_scheduler"
 
 # Admin configuration environment variables
-ENV ADMIN_USERNAME=""
-ENV ADMIN_PASSWORD=""
-ENV ADMIN_EMAIL=""
+ENV ADMIN_USERNAME="admin"
+ENV ADMIN_PASSWORD="admin123"
+ENV ADMIN_EMAIL="admin@examscheduler.com"
 
 # JWT configuration environment variables
-ENV JWT_SECRET=""
-ENV JWT_EXPIRATION=""
+ENV JWT_SECRET="mySecretKey"
+ENV JWT_EXPIRATION="86400"
 
 # Security configuration environment variables
-ENV SECURITY_USERNAME=""
-ENV SECURITY_PASSWORD=""
-ENV SECURITY_ROLES=""
+ENV SECURITY_USERNAME="admin"
+ENV SECURITY_PASSWORD="admin123"
+ENV SECURITY_ROLES="ADMIN"
 
 # CORS configuration environment variables
-ENV CORS_ALLOWED_ORIGINS=""
+ENV CORS_ALLOWED_ORIGINS="http://localhost:3000,http://localhost:3001,http://localhost:5173,https://*.netlify.app"
 
 # Run the jar file
 CMD ["java", "-jar", "target/ExamPilot-0.0.1-SNAPSHOT.jar"]
