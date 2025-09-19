@@ -8,6 +8,10 @@
   # The command to build the site
   command = "npm run build"
 
+[build.environment]
+  # Set the API base URL for production
+  VITE_API_BASE_URL = "https://exampilot-70o5.onrender.com"
+
 # Redirect rules for Single Page Application (SPA)
 [[redirects]]
   from = "/*"
