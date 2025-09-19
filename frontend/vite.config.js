@@ -5,7 +5,9 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   define: {
-    // Make sure environment variables are available in production
+    // Explicitly define the API URL for production builds
+    __API_BASE_URL__: JSON.stringify("https://exampilot-70o5.onrender.com"),
+    // Also keep the environment variable approach
     "import.meta.env.VITE_API_BASE_URL": JSON.stringify(
       process.env.VITE_API_BASE_URL || "https://exampilot-70o5.onrender.com"
     ),
